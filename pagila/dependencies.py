@@ -1,9 +1,14 @@
-from sql.database import SessionLocal
+import mongo.client
+from sql.database import DatabaseApi
 
 
-def get_db():
-    db = SessionLocal()
+async def get_db():
+    db = DatabaseApi.session()
     try:
         yield db
     finally:
         db.close()
+
+
+async def get_m_db():
+    return mongo.client.MongoApi.database()

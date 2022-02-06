@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-router = APIRouter(prefix="/films", tags=["films"], )
+router = APIRouter(prefix="/pg/films", tags=["films"])
 
 
-@router.get("/")
+@router.get("")
 def get_films():
     return {"success": True, "data": []}
